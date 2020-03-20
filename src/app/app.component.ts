@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
 
 //Animations are just the jorney from one state to the next
 
@@ -84,10 +84,15 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
       ),
 
       transition('* => void', [
+        group([
+        animate(300, style({
+         color: 'red'
+        })),
         animate(300, style({
           transform: 'translateX(100px)',
           opacity: 0,
-        }))]),
+        }))
+      ])]),
     ]),
   ]
 })
